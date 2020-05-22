@@ -16,19 +16,28 @@ const initialState = {
 //     }
 // };
 
+// const initialState = {
+//  
+//         id: 1,
+//         title: "wash car",
+//         body: "with soap",
+//         done: false
+//     
+// };
+
 const todosReducer = (state = initialState, action) => { // action - receiveTodo(s)
     Object.freeze(state);
-    // debugger;
+    // //debugger;
     switch (action.type) { 
         case RECEIVE_TODOS:
-            // let otherState = {};
-            // action.todos.forEach(todo => {
-            //     otherState[todo['id']] = todo;
-            // });
-            // return otherState;
+            let otherState = {};
+            action.todos.forEach(todo => {
+                otherState[todo['id']] = todo;
+            });
+            return otherState;
         
-             action.todos = todos;
-             return todos;
+            //  action.todos = todos;
+            //  return todos;
 
         case RECEIVE_TODO:
             const {title, body, done, id} = action.todo;
